@@ -1,0 +1,1 @@
+artifacts are draft specs,templates, copy
