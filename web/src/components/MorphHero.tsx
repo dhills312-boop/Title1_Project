@@ -36,6 +36,10 @@ export default function MorphHero({ accentColor = '#5C7A6E' }: MorphHeroProps) {
   const stateRef = useRef({ current: 0, raf: 0, timer: 0 as unknown as ReturnType<typeof setTimeout> | 0 });
 
   useEffect(() => {
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      return;
+    }
+
     const MORPH_MS = 1600;
     const HOLD_MS = 3200;
 
@@ -144,68 +148,115 @@ export default function MorphHero({ accentColor = '#5C7A6E' }: MorphHeroProps) {
 
   return (
     <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <svg viewBox="0 0 1200 800" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style={{ display: 'block' }}>
-        <defs>
-          <linearGradient id="morph-shimmer" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor={accentColor} stopOpacity="0" />
-            <stop offset="42%" stopColor={accentColor} stopOpacity="0" />
-            <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.95" />
-            <stop offset="58%" stopColor={accentColor} stopOpacity="0" />
-            <stop offset="100%" stopColor={accentColor} stopOpacity="0" />
-          </linearGradient>
-          <filter id="morph-glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="5" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-        <g className="morph-float">
-        <g ref={groupRef}>
-          <path
-            ref={glowPathRef}
-            d={FALLBACK_PATH}
-            fill="none"
-            stroke={accentColor}
-            strokeWidth="7"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            opacity="0.16"
-            filter="url(#morph-glow)"
-          />
-          <path
-            ref={pathRef}
-            d={FALLBACK_PATH}
-            fill="none"
-            stroke={accentColor}
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            opacity="0.75"
-          />
-          <path
-            ref={shimmerPathRef}
-            d={FALLBACK_PATH}
-            fill="none"
-            stroke="url(#morph-shimmer)"
-            strokeWidth="5.4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            opacity="0.95"
-            strokeDasharray="180 1500"
-            className="morph-shimmer-path"
-          />
-        </g>
-        </g>
-      </svg>
+      <div className="morph-desktop-shell" style={{ width: '100%', height: '100%' }}>
+        <svg viewBox="0 0 1200 800" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style={{ display: 'block' }}>
+          <defs>
+            <linearGradient id="morph-shimmer" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor={accentColor} stopOpacity="0" />
+              <stop offset="42%" stopColor={accentColor} stopOpacity="0" />
+              <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.95" />
+              <stop offset="58%" stopColor={accentColor} stopOpacity="0" />
+              <stop offset="100%" stopColor={accentColor} stopOpacity="0" />
+            </linearGradient>
+            <filter id="morph-glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="5" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <g className="morph-float">
+            <g ref={groupRef}>
+              <path
+                ref={glowPathRef}
+                d={FALLBACK_PATH}
+                fill="none"
+                stroke={accentColor}
+                strokeWidth="7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                opacity="0.16"
+                filter="url(#morph-glow)"
+              />
+              <path
+                ref={pathRef}
+                d={FALLBACK_PATH}
+                fill="none"
+                stroke={accentColor}
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                opacity="0.75"
+              />
+              <path
+                ref={shimmerPathRef}
+                d={FALLBACK_PATH}
+                fill="none"
+                stroke="url(#morph-shimmer)"
+                strokeWidth="5.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                opacity="0.95"
+                strokeDasharray="180 1500"
+                className="morph-shimmer-path"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div
+        className="morph-mobile-fallback"
+        style={{
+          width: '100%',
+          height: '100%',
+          position: 'relative',
+          display: 'none',
+          alignItems: 'center',
+          justifyContent: 'center',
+          overflow: 'hidden',
+        }}
+      >
+        <img
+          src="/uploads/IMG_8203.JPG"
+          alt=""
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
+            display: 'block',
+            mixBlendMode: 'multiply',
+            opacity: 0.82,
+            filter: 'sepia(0.36) saturate(0.62) hue-rotate(92deg) brightness(0.84)',
+          }}
+        />
+        <div
+          className="morph-mobile-shimmer"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              'linear-gradient(105deg, rgba(255,255,255,0) 38%, rgba(255,255,255,0.88) 50%, rgba(255,255,255,0) 62%)',
+            mixBlendMode: 'screen',
+            opacity: 0.6,
+            transform: 'translateX(-125%)',
+          }}
+        />
+      </div>
       <style>{`
+        .morph-desktop-shell {
+          width: 100%;
+          height: 100%;
+        }
         .morph-float {
           animation: morphFloat 7.2s ease-in-out infinite;
           transform-origin: center;
         }
         .morph-shimmer-path {
           animation: morphDash 13.5s linear infinite;
+        }
+        .morph-mobile-shimmer {
+          animation: mobileShimmer 6.8s ease-in-out infinite;
         }
         @keyframes morphFloat {
           0%, 100% { transform: translateY(0px) scale(1); }
@@ -214,6 +265,18 @@ export default function MorphHero({ accentColor = '#5C7A6E' }: MorphHeroProps) {
         @keyframes morphDash {
           0% { stroke-dashoffset: 1560; }
           100% { stroke-dashoffset: -1560; }
+        }
+        @keyframes mobileShimmer {
+          0%, 12% { transform: translateX(-125%); }
+          44%, 100% { transform: translateX(125%); }
+        }
+        @media (max-width: 767px) {
+          .morph-desktop-shell {
+            display: none;
+          }
+          .morph-mobile-fallback {
+            display: flex;
+          }
         }
       `}</style>
     </div>

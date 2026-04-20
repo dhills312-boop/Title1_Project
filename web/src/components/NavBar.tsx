@@ -31,6 +31,18 @@ export default function NavBar() {
         >
           Title I
         </Link>
+        <Link
+          href="/teacher-preview"
+          style={{
+            fontFamily: 'var(--sans)',
+            fontSize: 11,
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+            color: 'var(--ink-muted)',
+          }}
+        >
+          Teacher Preview
+        </Link>
       </div>
       <div
         style={{
