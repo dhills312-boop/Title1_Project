@@ -23,29 +23,59 @@ const MINI_DOODLES = [
 
 export default function MiniDoodles() {
   return (
-    <>
-      {MINI_DOODLES.map(({ src, size, rot, ...pos }, i) => (
-        <img
-          key={i}
-          src={src}
-          alt=""
-          style={{
-            position: 'absolute',
-            width: size,
-            height: size,
-            objectFit: 'contain',
-            background: 'transparent',
-            mixBlendMode: 'multiply',
-            filter: 'brightness(0.9) contrast(1.08)',
-            transform: `rotate(${rot}deg)`,
-            pointerEvents: 'none',
-            opacity: 0.38,
-            userSelect: 'none',
-            zIndex: 0,
-            ...(pos as React.CSSProperties),
-          }}
-        />
-      ))}
-    </>
+    <div className="mini-doodles-layer" aria-hidden="true">
+      {MINI_DOODLES.map(({ src, size, rot, ...pos }, i) => {
+        const x = (i % 4) - 1.5;
+        const y = ((i * 2) % 5) - 2;
+        const duration = 18 + (i % 5) * 3;
+        const delay = -(i * 1.35);
+        return (
+          <img
+            key={i}
+            src={src}
+            alt=""
+            style={{
+              position: 'absolute',
+              width: size,
+              height: size,
+              objectFit: 'contain',
+              background: 'transparent',
+              mixBlendMode: 'multiply',
+              filter: 'brightness(0.9) contrast(1.08)',
+              transformOrigin: 'center',
+              animation: `miniDoodleDrift ${duration}s ease-in-out ${delay}s infinite alternate`,
+              ['--base-rotation' as string]: `${rot}deg`,
+              ['--drift-x' as string]: `${x * 6}px`,
+              ['--drift-y' as string]: `${y * 5}px`,
+              pointerEvents: 'none',
+              opacity: 0.24,
+              userSelect: 'none',
+              zIndex: 0,
+              ...(pos as React.CSSProperties),
+            }}
+          />
+        );
+      })}
+      <style>{`
+        @keyframes miniDoodleDrift {
+          0% {
+            transform: translate3d(0, 0, 0) rotate(var(--base-rotation, 0deg));
+          }
+          100% {
+            transform: translate3d(var(--drift-x), var(--drift-y), 0) rotate(var(--base-rotation, 0deg));
+          }
+        }
+        .mini-doodles-layer img {
+          --base-rotation: 0deg;
+          will-change: transform;
+        }
+        @media (max-width: 767px) {
+          .mini-doodles-layer img {
+            opacity: 0.14 !important;
+            animation-duration: 24s !important;
+          }
+        }
+      `}</style>
+    </div>
   );
 }

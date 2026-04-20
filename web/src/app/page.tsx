@@ -33,10 +33,8 @@ export default function LandingPage() {
       <MiniDoodles />
       <Doodle src="/uploads/IMG_8201.JPG" style={{ left: '-8vw', top: '92px', width: 'clamp(240px, 34vw, 420px)', zIndex: 0 }} />
       <Doodle src="/uploads/IMG_8208.JPG" style={{ right: '-7vw', top: '230px', width: 'clamp(220px, 30vw, 320px)', zIndex: 0 }} />
-      <Doodle src="/uploads/IMG_8207.JPG" style={{ left: '-5vw', top: '900px', width: 'clamp(170px, 24vw, 240px)', zIndex: 0 }} />
       <Doodle src="/uploads/IMG_8206.JPG" style={{ right: '-8vw', top: '1220px', width: 'clamp(250px, 38vw, 460px)', zIndex: 0 }} />
-      <Doodle src="/uploads/IMG_8209.JPG" style={{ left: '-6vw', top: '1580px', width: 'clamp(210px, 28vw, 320px)', zIndex: 0 }} />
-      <Doodle src="/uploads/IMG_8210.JPG" style={{ right: '-5vw', bottom: '72px', width: 'clamp(180px, 24vw, 260px)', zIndex: 0 }} />
+      <Doodle src="/uploads/IMG_8210.JPG" style={{ right: '-4vw', bottom: '96px', width: 'clamp(170px, 22vw, 240px)', zIndex: 0 }} />
 
       <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 clamp(24px,5vw,80px)', position: 'relative', zIndex: 1 }}>
         <div
