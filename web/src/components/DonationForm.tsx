@@ -30,6 +30,8 @@ export default function DonationForm({
 
   function continueToConfirm() {
     if (!ready) return;
+    // GITHUB PAGES DEMO: Keep the flow client-side by carrying preview state in
+    // query params. Remove when the real donation submission is wired up.
     const params = new URLSearchParams({
       schoolId,
       amount: String(amount),
@@ -120,7 +122,7 @@ export default function DonationForm({
           cursor: ready ? 'pointer' : 'default',
         }}
       >
-        {ready ? `Review $${amount} allocation →` : 'Select an amount'}
+        {ready ? `Review $${amount} allocation \u2192` : 'Select an amount'}
       </button>
       <p
         style={{

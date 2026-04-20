@@ -1,5 +1,7 @@
 import { ITEMS } from '@/lib/data/items';
 
+// GITHUB PAGES DEMO: Prebuild all item detail routes for static export.
+// Remove when the preview no longer needs a fully static route map.
 export function generateStaticParams() {
   return ITEMS.map(i => ({
     schoolId: i.schoolId,
