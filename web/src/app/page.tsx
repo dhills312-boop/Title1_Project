@@ -18,18 +18,13 @@ export default function LandingPage() {
   const schoolMarks = [
     {
       src: '/uploads/IMG_8198.PNG',
-      label: school.name,
-      sub: school.location,
+      label: 'School Campaign',
+      sub: school.name,
     },
     {
       src: '/uploads/IMG_8199.PNG',
-      label: school.district,
-      sub: `${classrooms.length} classrooms`,
-    },
-    {
-      src: '/uploads/IMG_8198.PNG',
-      label: 'Verified Campaign',
-      sub: `${systems.length} systems live`,
+      label: 'Location + Reach',
+      sub: `${school.location} · ${classrooms.length} classrooms`,
     },
   ];
 
@@ -96,7 +91,7 @@ export default function LandingPage() {
               marginTop: 8,
               marginBottom: 28,
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+              gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
               gap: 18,
             }}
           >

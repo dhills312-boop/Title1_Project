@@ -54,12 +54,26 @@ export default async function CampaignPage({ params }: CampaignPageProps) {
               </FadeUp>
             </div>
             <FadeUp delay={0.2}>
-              <div style={{ textAlign: 'right' }}>
+              <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', gap: 18 }}>
+                <div style={{ display: 'flex', gap: 12, alignItems: 'flex-end' }}>
+                  <img
+                    src="/uploads/IMG_8198.PNG"
+                    alt=""
+                    style={{ width: 92, height: 92, objectFit: 'contain', mixBlendMode: 'multiply', opacity: 0.78 }}
+                  />
+                  <img
+                    src="/uploads/IMG_8199.PNG"
+                    alt=""
+                    style={{ width: 92, height: 92, objectFit: 'contain', mixBlendMode: 'multiply', opacity: 0.72 }}
+                  />
+                </div>
+                <div style={{ textAlign: 'right' }}>
                 <div style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px,5vw,60px)', fontWeight: 500, color: 'var(--ink)' }}>
                   <CountUp to={String(pct)} suffix="%" />
                 </div>
                 <div style={{ fontFamily: 'var(--sans)', fontSize: 12, color: 'var(--ink-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: 4 }}>
                   of total need funded
+                </div>
                 </div>
               </div>
             </FadeUp>

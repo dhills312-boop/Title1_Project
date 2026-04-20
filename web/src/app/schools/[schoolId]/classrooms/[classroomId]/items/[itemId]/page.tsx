@@ -45,9 +45,25 @@ export default async function ItemPage({ params }: ItemPageProps) {
             <Link href={`/schools/${school.id}/classrooms/${classroom.id}`} style={{ textDecoration: 'underline', textUnderlineOffset: 3 }}>{classroom.teacher}&apos;s {classroom.grade}</Link>
           </p>
         </FadeUp>
-        <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(32px,5vw,60px)', fontWeight: 400, lineHeight: 1.05, letterSpacing: '-0.02em', color: 'var(--ink)', marginBottom: 32 }}>
-          <LineReveal delay={0.1}>{item.name}</LineReveal>
-        </h1>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 24, alignItems: 'end', marginBottom: 32 }}>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(32px,5vw,60px)', fontWeight: 400, lineHeight: 1.05, letterSpacing: '-0.02em', color: 'var(--ink)', marginBottom: 0 }}>
+            <LineReveal delay={0.1}>{item.name}</LineReveal>
+          </h1>
+          <FadeUp delay={0.14}>
+            <div style={{ display: 'flex', gap: 10, alignItems: 'flex-end' }}>
+              <img
+                src="/uploads/IMG_8198.PNG"
+                alt=""
+                style={{ width: 72, height: 72, objectFit: 'contain', mixBlendMode: 'multiply', opacity: 0.76 }}
+              />
+              <img
+                src="/uploads/IMG_8199.PNG"
+                alt=""
+                style={{ width: 72, height: 72, objectFit: 'contain', mixBlendMode: 'multiply', opacity: 0.7 }}
+              />
+            </div>
+          </FadeUp>
+        </div>
 
         <Rule />
 

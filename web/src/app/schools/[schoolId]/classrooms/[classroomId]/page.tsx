@@ -37,9 +37,25 @@ export default async function ClassroomPage({ params }: ClassroomPageProps) {
             {school.name} · {classroom.grade}
           </div>
         </FadeUp>
-        <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px,5.5vw,68px)', fontWeight: 400, lineHeight: 1.05, letterSpacing: '-0.025em', color: 'var(--ink)', marginBottom: 0 }}>
-          <LineReveal delay={0.05}>{classroom.teacher}&apos;s Classroom</LineReveal>
-        </h1>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 28, alignItems: 'end' }}>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px,5.5vw,68px)', fontWeight: 400, lineHeight: 1.05, letterSpacing: '-0.025em', color: 'var(--ink)', marginBottom: 0 }}>
+            <LineReveal delay={0.05}>{classroom.teacher}&apos;s Classroom</LineReveal>
+          </h1>
+          <FadeUp delay={0.12}>
+            <div style={{ display: 'flex', gap: 12, alignItems: 'flex-end' }}>
+              <img
+                src="/uploads/IMG_8198.PNG"
+                alt=""
+                style={{ width: 84, height: 84, objectFit: 'contain', mixBlendMode: 'multiply', opacity: 0.78 }}
+              />
+              <img
+                src="/uploads/IMG_8199.PNG"
+                alt=""
+                style={{ width: 84, height: 84, objectFit: 'contain', mixBlendMode: 'multiply', opacity: 0.72 }}
+              />
+            </div>
+          </FadeUp>
+        </div>
 
         <div style={{ height: 48 }} />
         <Rule />
