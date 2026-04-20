@@ -219,7 +219,14 @@ export default function LandingPage() {
             <img
               src="/uploads/IMG_8211.JPG"
               alt=""
-              style={{ width: '100%', maxWidth: 420, display: 'block', opacity: 0.6 }}
+              style={{
+                width: '100%',
+                maxWidth: 420,
+                display: 'block',
+                opacity: 0.54,
+                mixBlendMode: 'multiply',
+                filter: 'sepia(0.32) saturate(0.62) brightness(0.74) contrast(1.04)',
+              }}
             />
           </FadeUp>
         </div>

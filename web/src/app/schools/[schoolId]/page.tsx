@@ -37,43 +37,43 @@ export default async function CampaignPage({ params }: CampaignPageProps) {
         <div style={{ marginBottom: 48 }}>
           <FadeUp>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-              <span className="eyebrow">Spring 2026 Campaign · Active</span>
+              <span className="eyebrow">Spring 2026 Campaign Â· Active</span>
               <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#5C8A5C' }} />
             </div>
           </FadeUp>
 
           <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 60, alignItems: 'end' }}>
             <div>
-              <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px,5.5vw,72px)', fontWeight: 400, lineHeight: 1.02, letterSpacing: '-0.025em', color: 'var(--ink)', marginBottom: 16 }}>
-                <LineReveal delay={0.05}>{school.name}</LineReveal>
-              </h1>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 18, marginBottom: 16 }}>
+                <img
+                  src="/uploads/IMG_8198.PNG"
+                  alt=""
+                  style={{
+                    width: 88,
+                    height: 88,
+                    objectFit: 'contain',
+                    mixBlendMode: 'multiply',
+                    opacity: 0.78,
+                    flexShrink: 0,
+                  }}
+                />
+                <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px,5.5vw,72px)', fontWeight: 400, lineHeight: 1.02, letterSpacing: '-0.025em', color: 'var(--ink)', marginBottom: 0 }}>
+                  <LineReveal delay={0.05}>{school.name}</LineReveal>
+                </h1>
+              </div>
               <FadeUp delay={0.3}>
                 <p style={{ fontFamily: 'var(--sans)', fontSize: 14, color: 'var(--ink-muted)', letterSpacing: '0.04em' }}>
-                  {school.district} · Grades {school.grade} · {school.enrollment} students
+                  {school.district} Â· Grades {school.grade} Â· {school.enrollment} students
                 </p>
               </FadeUp>
             </div>
             <FadeUp delay={0.2}>
-              <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', gap: 18 }}>
-                <div style={{ display: 'flex', gap: 12, alignItems: 'flex-end' }}>
-                  <img
-                    src="/uploads/IMG_8198.PNG"
-                    alt=""
-                    style={{ width: 92, height: 92, objectFit: 'contain', mixBlendMode: 'multiply', opacity: 0.78 }}
-                  />
-                  <img
-                    src="/uploads/IMG_8199.PNG"
-                    alt=""
-                    style={{ width: 92, height: 92, objectFit: 'contain', mixBlendMode: 'multiply', opacity: 0.72 }}
-                  />
-                </div>
-                <div style={{ textAlign: 'right' }}>
+              <div style={{ textAlign: 'right' }}>
                 <div style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px,5vw,60px)', fontWeight: 500, color: 'var(--ink)' }}>
                   <CountUp to={String(pct)} suffix="%" />
                 </div>
                 <div style={{ fontFamily: 'var(--sans)', fontSize: 12, color: 'var(--ink-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: 4 }}>
                   of total need funded
-                </div>
                 </div>
               </div>
             </FadeUp>
@@ -98,7 +98,7 @@ export default async function CampaignPage({ params }: CampaignPageProps) {
         <div style={{ paddingTop: 48 }}>
           <FadeUp>
             <div className="eyebrow" style={{ color: 'var(--ink-muted)', marginBottom: 12 }}>
-              Systems in this campaign — contribute toward one
+              Systems in this campaign â€” contribute toward one
             </div>
           </FadeUp>
           <FadeUp delay={0.1}>
@@ -126,7 +126,7 @@ export default async function CampaignPage({ params }: CampaignPageProps) {
                 textTransform: 'uppercase',
               }}
             >
-              Contribute to greatest need →
+              Contribute to greatest need â†’
             </Link>
           </div>
         </div>
