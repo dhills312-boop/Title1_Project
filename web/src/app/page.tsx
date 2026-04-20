@@ -88,96 +88,83 @@ export default function LandingPage() {
 
           <div style={{ height: 'clamp(380px,55vh,640px)', position: 'relative' }}>
             <MorphHero accentColor="#5C7A6E" />
-            <FadeUp delay={0.5}>
-              <div
-                style={{
-                  position: 'absolute',
-                  left: '50%',
-                  bottom: 24,
-                  transform: 'translateX(-50%)',
-                  width: 'min(100%, 560px)',
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-                  gap: 12,
-                  padding: 12,
-                  background: 'rgba(237,234,226,0.82)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(26,22,18,0.08)',
-                }}
-              >
-                {schoolMarks.map((mark, index) => (
-                  <div
-                    key={mark.label}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 10,
-                      padding: '10px 12px',
-                      border: '1px solid var(--rule)',
-                      background: 'rgba(255,255,255,0.22)',
-                      minWidth: 0,
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: 42,
-                        height: 42,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
-                        border: '1px solid rgba(26,22,18,0.08)',
-                        background: 'rgba(255,255,255,0.28)',
-                        padding: 5,
-                      }}
-                    >
-                      <img
-                        src={mark.src}
-                        alt=""
-                        style={{
-                          width: '100%',
-                          height: '100%',
-                          objectFit: 'contain',
-                          mixBlendMode: 'multiply',
-                          opacity: index === 1 ? 0.72 : 0.8,
-                        }}
-                      />
-                    </div>
-                    <div style={{ minWidth: 0 }}>
-                      <div
-                        style={{
-                          fontFamily: 'var(--sans)',
-                          fontSize: 11,
-                          letterSpacing: '0.08em',
-                          textTransform: 'uppercase',
-                          color: 'var(--ink)',
-                          whiteSpace: 'nowrap',
-                          overflow: 'hidden',
-                          textOverflow: 'ellipsis',
-                        }}
-                      >
-                        {mark.label}
-                      </div>
-                      <div
-                        style={{
-                          fontFamily: 'var(--sans)',
-                          fontSize: 11,
-                          color: 'var(--ink-muted)',
-                          marginTop: 3,
-                          whiteSpace: 'nowrap',
-                          overflow: 'hidden',
-                          textOverflow: 'ellipsis',
-                        }}
-                      >
-                        {mark.sub}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </FadeUp>
           </div>
         </div>
+        <FadeUp delay={0.45}>
+          <div
+            style={{
+              marginTop: 8,
+              marginBottom: 28,
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+              gap: 18,
+            }}
+          >
+            {schoolMarks.map((mark, index) => (
+              <div
+                key={mark.label}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 18,
+                  padding: '20px 22px',
+                  borderTop: '1px solid var(--ink)',
+                  borderBottom: '1px solid var(--rule)',
+                  background: 'rgba(255,255,255,0.16)',
+                  minWidth: 0,
+                }}
+              >
+                <div
+                  style={{
+                    width: 92,
+                    height: 92,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                    padding: 8,
+                  }}
+                >
+                  <img
+                    src={mark.src}
+                    alt=""
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'contain',
+                      mixBlendMode: 'multiply',
+                      opacity: index === 1 ? 0.72 : 0.8,
+                    }}
+                  />
+                </div>
+                <div style={{ minWidth: 0 }}>
+                  <div
+                    style={{
+                      fontFamily: 'var(--sans)',
+                      fontSize: 11,
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                      color: 'var(--ink)',
+                      marginBottom: 6,
+                    }}
+                  >
+                    {mark.label}
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: 'var(--serif)',
+                      fontSize: 20,
+                      lineHeight: 1.15,
+                      color: 'var(--ink-muted)',
+                    }}
+                  >
+                    {mark.sub}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </FadeUp>
       </div>
 
       <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 clamp(24px,5vw,80px)', position: 'relative', zIndex: 1 }}>
