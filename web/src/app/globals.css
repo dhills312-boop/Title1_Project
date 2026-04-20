@@ -1,6 +1,8 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
+  --font-eb-garamond: Georgia, serif;
+  --font-dm-sans: "Aptos", "Segoe UI", system-ui, sans-serif;
   --bg: #EDEAE2;
   --bg-warm: #E4E0D6;
   --ink: #1A1612;
