@@ -57,7 +57,20 @@ export default async function CampaignPage({ params }: CampaignPageProps) {
             }}
           >
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 18, marginBottom: 16 }}>
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 18,
+                  marginBottom: 16,
+                  padding: '16px 20px',
+                  background: 'rgba(237,234,226,0.94)',
+                  borderTop: '1px solid var(--ink)',
+                  borderBottom: '1px solid var(--rule)',
+                  backdropFilter: 'blur(4px)',
+                  maxWidth: '100%',
+                }}
+              >
                 <img
                   src="/uploads/IMG_8198.PNG"
                   alt=""

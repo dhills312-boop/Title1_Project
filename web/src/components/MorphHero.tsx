@@ -249,26 +249,34 @@ export default function MorphHero({ accentColor = '#5C7A6E' }: MorphHeroProps) {
           height: 100%;
         }
         .morph-float {
-          animation: morphFloat 7.2s ease-in-out infinite;
+          animation: morphFloat 8.8s ease-in-out infinite;
           transform-origin: center;
         }
         .morph-shimmer-path {
-          animation: morphDash 13.5s linear infinite;
+          animation: morphDash 10.8s linear infinite;
+        }
+        .morph-mobile-fallback {
+          animation: morphMobileBreathe 8.4s ease-in-out infinite;
+          transform-origin: center;
         }
         .morph-mobile-shimmer {
-          animation: mobileShimmer 6.8s ease-in-out infinite;
+          animation: mobileShimmer 5.6s ease-in-out infinite;
         }
         @keyframes morphFloat {
-          0%, 100% { transform: translateY(0px) scale(1); }
-          50% { transform: translateY(-10px) scale(1.012); }
+          0%, 100% { transform: translateY(0px) scale(0.992); }
+          50% { transform: translateY(-8px) scale(1.018); }
         }
         @keyframes morphDash {
-          0% { stroke-dashoffset: 1560; }
-          100% { stroke-dashoffset: -1560; }
+          0% { stroke-dashoffset: -1320; }
+          100% { stroke-dashoffset: 1320; }
+        }
+        @keyframes morphMobileBreathe {
+          0%, 100% { transform: translateY(0px) scale(0.988); }
+          50% { transform: translateY(-7px) scale(1.022); }
         }
         @keyframes mobileShimmer {
-          0%, 12% { transform: translateX(-125%); }
-          44%, 100% { transform: translateX(125%); }
+          0%, 10% { transform: translateX(135%); }
+          46%, 100% { transform: translateX(-135%); }
         }
         @media (max-width: 767px) {
           .morph-desktop-shell {
