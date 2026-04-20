@@ -22,12 +22,12 @@ export default function TeacherPreviewPage() {
   const items = getItemsForClassroom(PREVIEW_CLASSROOM_ID);
 
   const parsedPreview = useMemo(() => {
-    const totalItems = items.reduce((sum, item) => sum + item.quantityNeeded, 0);
+    const totalUnits = items.reduce((sum, item) => sum + item.quantityNeeded, 0);
     const matchedSystems = systems.filter((system) =>
       items.some((item) => item.systemId === system.id),
     );
     return {
-      totalItems,
+      totalUnits,
       matchedSystems,
       topNeeds: items.slice(0, 3),
     };
@@ -60,7 +60,7 @@ export default function TeacherPreviewPage() {
             </h1>
             <FadeUp delay={0.28}>
               <p style={{ fontFamily: 'var(--sans)', fontSize: 15, lineHeight: 1.8, color: 'var(--ink-muted)', maxWidth: 520, fontWeight: 300 }}>
-                This demo starts with an Amazon wishlist link from a teacher, runs our predetermined classroom-matching logic, and lands on the ready-made campaign result. No database or parsing API is wired yet, so Ms. Tarver&apos;s classroom is the seeded example.
+                This demo starts with an Amazon wishlist link from a teacher, maps it to a seeded classroom profile, and lands on the ready-made campaign result. No database or parsing API is wired yet, so Ms. Tarver&apos;s classroom is a curated preview based on the visible wishlist categories rather than a live sync.
               </p>
             </FadeUp>
           </div>
@@ -141,7 +141,7 @@ export default function TeacherPreviewPage() {
                 </Link>
               </div>
               <div style={{ fontFamily: 'var(--sans)', fontSize: 12, lineHeight: 1.7, color: 'var(--ink-muted)' }}>
-                Current demo behavior: this seeded Amazon link maps directly to Ms. Tarver&apos;s prebuilt classroom campaign.
+                Current demo behavior: this seeded Amazon link routes to Ms. Tarver&apos;s prebuilt classroom campaign using manually matched wishlist categories.
               </div>
             </div>
           </FadeUp>
@@ -159,7 +159,7 @@ export default function TeacherPreviewPage() {
           }}
         >
           {[
-            [`${parsedPreview.totalItems}`, 'wishlist line items matched'],
+            [`${parsedPreview.totalUnits}`, 'seeded units represented'],
             [`${parsedPreview.matchedSystems.length}`, 'systems recognized'],
             [`${classroom.students}`, 'students impacted'],
           ].map(([value, label]) => (
