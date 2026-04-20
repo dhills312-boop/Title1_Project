@@ -94,20 +94,7 @@ export default async function CampaignPage({ params }: CampaignPageProps) {
               </FadeUp>
             </div>
             <FadeUp delay={0.2}>
-              <div
-                style={{
-                  textAlign: 'right',
-                  display: 'inline-flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-end',
-                  justifySelf: 'end',
-                  padding: '18px 20px',
-                  background: 'rgba(237,234,226,0.92)',
-                  borderTop: '1px solid var(--ink)',
-                  borderBottom: '1px solid var(--rule)',
-                  backdropFilter: 'blur(4px)',
-                }}
-              >
+              <div style={{ textAlign: 'right' }}>
                 <div style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px,5vw,60px)', fontWeight: 500, color: 'var(--ink)' }}>
                   <CountUp to={String(pct)} suffix="%" />
                 </div>
@@ -120,16 +107,7 @@ export default async function CampaignPage({ params }: CampaignPageProps) {
         </div>
 
         <Rule />
-        <div
-          style={{
-            padding: '24px 20px',
-            marginBottom: 24,
-            background: 'rgba(237,234,226,0.88)',
-            borderTop: '1px solid var(--rule)',
-            borderBottom: '1px solid var(--rule)',
-            backdropFilter: 'blur(4px)',
-          }}
-        >
+          <div style={{ padding: '32px O', marginBottom: 24 }}>
           <div style={{ height: 4, background: 'var(--rule)', marginBottom: 12 }}>
             <div style={{ height: '100%', width: `${pct}%`, background: 'var(--ink)' }} />
           </div>
