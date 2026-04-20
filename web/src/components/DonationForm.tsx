@@ -30,8 +30,6 @@ export default function DonationForm({
 
   function continueToConfirm() {
     if (!ready) return;
-    // GITHUB PAGES DEMO: Keep the flow client-side by carrying preview state in
-    // query params. Remove when the real donation submission is wired up.
     const params = new URLSearchParams({
       schoolId,
       amount: String(amount),

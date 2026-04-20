@@ -1,7 +1,5 @@
 import { CLASSROOMS } from '@/lib/data/classrooms';
 
-// GITHUB PAGES DEMO: Prebuild all classroom routes for static export.
-// Remove when the preview no longer needs a fully static route map.
 export function generateStaticParams() {
   return CLASSROOMS.map(c => ({ schoolId: c.schoolId, classroomId: c.id }));
 }
