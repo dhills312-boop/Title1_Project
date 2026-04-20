@@ -99,7 +99,7 @@ export default async function DonatePage({ searchParams }: DonatePageProps) {
               <AllocationPreview
                 slices={slices}
                 amountUSD={amount!}
-                title="Preview — how this would be allocated"
+                title="Preview - how this would be allocated"
                 note={
                   mode === 'system'
                     ? `100% goes to ${system!.name}, allocated across the ${system!.classroomsSupported} classrooms it supports.`
@@ -123,19 +123,7 @@ export default async function DonatePage({ searchParams }: DonatePageProps) {
 
         <FadeUp delay={0.4}>
           <div style={{ marginTop: 40 }}>
-            <Link
-              href={`/schools/${school.id}`}
-              style={{
-                fontFamily: 'var(--sans)',
-                fontSize: 12,
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                color: 'var(--ink-muted)',
-                textDecoration: 'underline',
-                textUnderlineOffset: 4,
-              }}
-            >
-              ← Back to campaign
+            <? Back to campaign
             </Link>
           </div>
         </FadeUp>

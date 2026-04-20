@@ -34,7 +34,7 @@ export default async function ClassroomPage({ params }: ClassroomPageProps) {
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: 'clamp(40px,6vw,80px) clamp(24px,5vw,80px)', position: 'relative', zIndex: 1 }}>
         <FadeUp>
           <div className="eyebrow" style={{ marginBottom: 16 }}>
-            {school.name} · {classroom.grade}
+            {school.name} ? {classroom.grade}
           </div>
         </FadeUp>
         <div
@@ -87,7 +87,7 @@ export default async function ClassroomPage({ params }: ClassroomPageProps) {
                 System progress in this classroom
               </div>
               {systems.map((system) => {
-                const pct = classroom.systemProgress[system.id] ?? 0;
+                const pct = classroom.systemProgress[system.id] ? 0;
                 return (
                   <ProgressBar
                     key={system.id}
@@ -107,7 +107,7 @@ export default async function ClassroomPage({ params }: ClassroomPageProps) {
                 Contribute to this classroom through a system
               </div>
               <p style={{ fontFamily: 'var(--sans)', fontSize: 13, lineHeight: 1.7, color: 'var(--ink-muted)', fontWeight: 300, marginBottom: 20 }}>
-                This classroom is supported through systems. Pick the system you want to back — your contribution is allocated to the classrooms it supports, weighted by need.
+                This classroom is supported through systems. Pick the system you want to back - your contribution is allocated to the classrooms it supports, weighted by need.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 {systems.map((system) => (
@@ -147,8 +147,7 @@ export default async function ClassroomPage({ params }: ClassroomPageProps) {
                   textTransform: 'uppercase',
                 }}
               >
-                Contribute to greatest need →
-              </Link>
+                Contribute to greatest need ?</Link>
             </div>
           </FadeUp>
         </div>
@@ -162,7 +161,7 @@ export default async function ClassroomPage({ params }: ClassroomPageProps) {
             </FadeUp>
             <FadeUp delay={0.1}>
               <p style={{ fontFamily: 'var(--sans)', fontSize: 13, color: 'var(--ink-muted)', lineHeight: 1.65, fontWeight: 300, marginBottom: 16, maxWidth: 620 }}>
-                Each item sits inside a system. Fulfilling an item is a secondary way to contribute — most donors should contribute to the system instead.
+                Each item sits inside a system. Fulfilling an item is a secondary way to contribute - most donors should contribute to the system instead.
               </p>
             </FadeUp>
             {items.map((item) => {

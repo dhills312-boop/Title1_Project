@@ -53,8 +53,7 @@ export default function SystemCard({ system, schoolId }: SystemCardProps) {
             textTransform: 'uppercase',
           }}
         >
-          Contribute →
-        </Link>
+          Contribute ?</Link>
       </div>
     </div>
   );

@@ -35,6 +35,8 @@ export default function MorphHero({ accentColor = '#5C7A6E' }: MorphHeroProps) {
   useEffect(() => {
     const MORPH_MS = 1600;
     const HOLD_MS = 3200;
+    const fallbackPath =
+      'M 240 390 C 300 330, 360 300, 430 300 C 500 300, 560 332, 600 380 C 640 428, 694 468, 766 470 C 840 472, 908 434, 960 366';
 
     let cancelled = false;
 
@@ -42,7 +44,25 @@ export default function MorphHero({ accentColor = '#5C7A6E' }: MorphHeroProps) {
       if (cancelled) return;
       const paths = window.paths;
       const flubber = window.flubber;
-      if (!paths || !flubber || !pathRef.current) {
+      if (!pathRef.current) {
+        setTimeout(tryStart, 80);
+        return;
+      }
+      if (paths && !flubber) {
+        pathRef.current.setAttribute('d', paths[0]?.d || fallbackPath);
+        glowPathRef.current?.setAttribute('d', paths[0]?.d || fallbackPath);
+        shimmerPathRef.current?.setAttribute('d', paths[0]?.d || fallbackPath);
+        if (paths[0]) {
+          if (groupRef.current) {
+            groupRef.current.setAttribute('transform', `translate(${paths[0].offX}, ${paths[0].offY})`);
+          }
+        }
+        return;
+      }
+      if (!paths || !flubber) {
+        pathRef.current.setAttribute('d', fallbackPath);
+        glowPathRef.current?.setAttribute('d', fallbackPath);
+        shimmerPathRef.current?.setAttribute('d', fallbackPath);
         setTimeout(tryStart, 80);
         return;
       }

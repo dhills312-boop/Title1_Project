@@ -24,19 +24,19 @@ export default function LandingPage() {
     {
       src: '/uploads/IMG_8199.PNG',
       label: 'Location + Reach',
-      sub: `${school.location} · ${classrooms.length} classrooms`,
+      sub: `${school.location} ? ${classrooms.length} classrooms`,
     },
   ];
 
   return (
     <div className="screen-enter" style={{ minHeight: '100vh', paddingTop: 60, position: 'relative', overflow: 'hidden' }}>
       <MiniDoodles />
-      <Doodle src="/uploads/IMG_8201.JPG" style={{ left: '-80px', top: '80px', width: '480px', zIndex: 0 }} />
-      <Doodle src="/uploads/IMG_8208.JPG" style={{ right: '-60px', top: '220px', width: '360px', zIndex: 0 }} />
-      <Doodle src="/uploads/IMG_8207.JPG" style={{ left: '-40px', top: '820px', width: '280px', zIndex: 0 }} />
-      <Doodle src="/uploads/IMG_8206.JPG" style={{ right: '-80px', top: '1100px', width: '500px', zIndex: 0 }} />
-      <Doodle src="/uploads/IMG_8209.JPG" style={{ left: '-30px', top: '1500px', width: '360px', zIndex: 0 }} />
-      <Doodle src="/uploads/IMG_8210.JPG" style={{ right: '-60px', bottom: '80px', width: '300px', zIndex: 0 }} />
+      <Doodle src="/uploads/IMG_8201.JPG" style={{ left: '-14vw', top: '64px', width: 'clamp(180px, 28vw, 420px)', zIndex: 0 }} />
+      <Doodle src="/uploads/IMG_8208.JPG" style={{ right: '-12vw', top: '200px', width: 'clamp(150px, 24vw, 320px)', zIndex: 0 }} />
+      <Doodle src="/uploads/IMG_8207.JPG" style={{ left: '-10vw', top: '860px', width: 'clamp(140px, 22vw, 240px)', zIndex: 0 }} />
+      <Doodle src="/uploads/IMG_8206.JPG" style={{ right: '-16vw', top: '1180px', width: 'clamp(220px, 34vw, 460px)', zIndex: 0 }} />
+      <Doodle src="/uploads/IMG_8209.JPG" style={{ left: '-12vw', top: '1560px', width: 'clamp(180px, 24vw, 320px)', zIndex: 0 }} />
+      <Doodle src="/uploads/IMG_8210.JPG" style={{ right: '-10vw', bottom: '72px', width: 'clamp(150px, 20vw, 260px)', zIndex: 0 }} />
 
       <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 clamp(24px,5vw,80px)', position: 'relative', zIndex: 1 }}>
         <div
@@ -53,7 +53,7 @@ export default function LandingPage() {
             <FadeUp>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 32 }}>
                 <div style={{ width: 28, height: 1, background: 'var(--accent)' }} />
-                <span className="eyebrow">Title I Verified · {school.district}</span>
+                <span className="eyebrow">Title I Verified ? {school.district}</span>
               </div>
             </FadeUp>
 
@@ -67,7 +67,7 @@ export default function LandingPage() {
 
             <FadeUp delay={0.5}>
               <p style={{ fontFamily: 'var(--sans)', fontSize: 17, lineHeight: 1.75, color: 'var(--ink-muted)', maxWidth: 420, marginBottom: 44, fontWeight: 300 }}>
-                Contribute toward a classroom system — reading, organization, operations. Every dollar is allocated transparently across the classrooms it supports.
+                Contribute toward a classroom system: reading, organization, operations. Every dollar is allocated transparently across the classrooms it supports.
               </p>
             </FadeUp>
 
@@ -85,8 +85,7 @@ export default function LandingPage() {
                   padding: '16px 40px',
                 }}
               >
-                See current campaign →
-              </Link>
+                See current campaign ?</Link>
             </FadeUp>
           </div>
 
@@ -244,9 +243,10 @@ export default function LandingPage() {
                 width: '100%',
                 maxWidth: 420,
                 display: 'block',
-                opacity: 0.54,
+                background: 'transparent',
+                opacity: 0.3,
                 mixBlendMode: 'multiply',
-                filter: 'sepia(0.32) saturate(0.62) brightness(0.74) contrast(1.04)',
+                filter: 'sepia(0.6) saturate(0.6) hue-rotate(100deg) brightness(0.72)',
               }}
             />
           </FadeUp>
@@ -254,7 +254,7 @@ export default function LandingPage() {
         <div style={{ paddingTop: 'clamp(0px, 4vw, 56px)' }}>
           {[
             ['01', 'A Title I school submits verified classroom systems through the district portal.'],
-            ['02', 'Systems group the needs across every classroom — reading, organization, operations.'],
+            ['02', 'Systems group the needs across every classroom: reading, organization, operations.'],
             ['03', 'Donors contribute to a system. Funds allocate across the classrooms it supports.'],
             ['04', 'Purchases are made through approved vendors. Receipts published within 30 days.'],
           ].map(([num, text], i) => (
@@ -279,8 +279,7 @@ export default function LandingPage() {
                 textUnderlineOffset: 5,
               }}
             >
-              View active campaign →
-            </Link>
+              View active campaign ?</Link>
           </FadeUp>
         </div>
       </div>
@@ -290,7 +289,7 @@ export default function LandingPage() {
           Currently active: {school.name}, {school.location}
         </span>
         <div style={{ fontFamily: 'var(--sans)', fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--ink-muted)' }}>
-          Verified 501(c)(3) · {school.district}
+          Verified 501(c)(3) ? {school.district}
         </div>
       </div>
     </div>

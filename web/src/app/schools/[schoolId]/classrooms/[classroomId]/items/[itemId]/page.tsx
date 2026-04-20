@@ -35,13 +35,13 @@ export default async function ItemPage({ params }: ItemPageProps) {
       <div style={{ maxWidth: 1000, margin: '0 auto', padding: 'clamp(40px,6vw,80px) clamp(24px,5vw,80px)', position: 'relative', zIndex: 1 }}>
         <FadeUp>
           <div className="eyebrow" style={{ marginBottom: 16 }}>
-            Item fulfillment · Inside {system.name}
+            Item fulfillment ? Inside {system.name}
           </div>
         </FadeUp>
         <FadeUp delay={0.05}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: 13, color: 'var(--ink-muted)', marginBottom: 8 }}>
             <Link href={`/schools/${school.id}`} style={{ textDecoration: 'underline', textUnderlineOffset: 3 }}>{school.name}</Link>
-            {' · '}
+            {' ? '}
             <Link href={`/schools/${school.id}/classrooms/${classroom.id}`} style={{ textDecoration: 'underline', textUnderlineOffset: 3 }}>{classroom.teacher}&apos;s {classroom.grade}</Link>
           </p>
         </FadeUp>
@@ -120,8 +120,7 @@ export default async function ItemPage({ params }: ItemPageProps) {
                     textUnderlineOffset: 4,
                   }}
                 >
-                  Contribute to the system instead →
-                </Link>
+                  Contribute to the system instead ?</Link>
               </div>
             </FadeUp>
           </div>
@@ -135,7 +134,7 @@ export default async function ItemPage({ params }: ItemPageProps) {
                 ${remainingUSD}
               </div>
               <div style={{ fontFamily: 'var(--sans)', fontSize: 12, color: 'var(--ink-muted)', marginBottom: 24 }}>
-                to fully fulfill ({remaining} units × ${item.unitCost})
+                to fully fulfill ({remaining} units ? ${item.unitCost})
               </div>
               <DonationForm
                 schoolId={school.id}

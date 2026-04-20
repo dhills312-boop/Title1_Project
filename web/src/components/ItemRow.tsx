@@ -9,10 +9,7 @@ interface ItemRowProps {
 }
 
 export default function ItemRow({ item, system, schoolId, classroomId }: ItemRowProps) {
-  const pct = Math.round((item.quantityFulfilled / item.quantityNeeded) * 100);
-  const remaining = item.quantityNeeded - item.quantityFulfilled;
-  return (
-    <Link
+  const pct = Math.round((item.quantityFulfill ?<Link
       href={`/schools/${schoolId}/classrooms/${classroomId}/items/${item.id}`}
       style={{
         display: 'grid',
@@ -29,7 +26,7 @@ export default function ItemRow({ item, system, schoolId, classroomId }: ItemRow
           {item.name}
         </div>
         <div style={{ fontFamily: 'var(--sans)', fontSize: 11, color: 'var(--ink-muted)', letterSpacing: '0.04em' }}>
-          Within {system.name} · ${item.unitCost} per unit
+          Within {system.name} ? ${item.unitCost} per unit
         </div>
       </div>
       <div>
@@ -37,7 +34,7 @@ export default function ItemRow({ item, system, schoolId, classroomId }: ItemRow
           <div style={{ height: '100%', width: `${pct}%`, background: 'var(--ink)' }} />
         </div>
         <div style={{ fontFamily: 'var(--sans)', fontSize: 11, color: 'var(--ink-muted)' }}>
-          {item.quantityFulfilled} of {item.quantityNeeded} fulfilled · {remaining} remaining
+          {item.quantityFulfilled} of {item.quantityNeeded} fulfilled ? {remaining} remaining
         </div>
       </div>
       <div style={{ fontFamily: 'var(--sans)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink-muted)' }}>
