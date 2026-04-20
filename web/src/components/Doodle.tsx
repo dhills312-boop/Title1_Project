@@ -10,13 +10,20 @@ export default function Doodle({ src, style = {} }: DoodleProps) {
     <div
       className="doodle-shell"
       aria-hidden="true"
-      style={{ display: 'block', userSelect: 'none', position: 'absolute', ...style }}
+      style={{ display: 'block', userSelect: 'none', position: 'absolute', lineHeight: 0, ...style }}
     >
       <img
         src={src}
         className="doodle"
         alt=""
-        style={{ display: 'block', userSelect: 'none', width: '100%', height: 'auto' }}
+        style={{
+          display: 'block',
+          userSelect: 'none',
+          width: '100%',
+          height: 'auto',
+          position: 'relative',
+          zIndex: 0,
+        }}
       />
       <span className="doodle-shimmer" />
       <style>{`
@@ -37,6 +44,7 @@ export default function Doodle({ src, style = {} }: DoodleProps) {
           opacity: 0.34;
           transform: translateX(135%);
           animation: doodleSweep 10.5s ease-in-out infinite;
+          z-index: 1;
         }
         @keyframes doodleSweep {
           0%, 16% { transform: translateX(135%); }
