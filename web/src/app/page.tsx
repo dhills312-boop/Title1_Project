@@ -29,17 +29,18 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="screen-enter" style={{ minHeight: '100vh', paddingTop: 60, position: 'relative', overflow: 'hidden' }}>
+    <div className="screen-enter landing-page" style={{ minHeight: '100vh', paddingTop: 60, position: 'relative', overflow: 'hidden' }}>
       <MiniDoodles />
-      <Doodle src="/uploads/IMG_8201.JPG" style={{ left: '-14vw', top: '64px', width: 'clamp(180px, 28vw, 420px)', zIndex: 0 }} />
-      <Doodle src="/uploads/IMG_8208.JPG" style={{ right: '-12vw', top: '200px', width: 'clamp(150px, 24vw, 320px)', zIndex: 0 }} />
-      <Doodle src="/uploads/IMG_8207.JPG" style={{ left: '-10vw', top: '860px', width: 'clamp(140px, 22vw, 240px)', zIndex: 0 }} />
-      <Doodle src="/uploads/IMG_8206.JPG" style={{ right: '-16vw', top: '1180px', width: 'clamp(220px, 34vw, 460px)', zIndex: 0 }} />
-      <Doodle src="/uploads/IMG_8209.JPG" style={{ left: '-12vw', top: '1560px', width: 'clamp(180px, 24vw, 320px)', zIndex: 0 }} />
-      <Doodle src="/uploads/IMG_8210.JPG" style={{ right: '-10vw', bottom: '72px', width: 'clamp(150px, 20vw, 260px)', zIndex: 0 }} />
+      <Doodle src="/uploads/IMG_8201.JPG" style={{ left: '-8vw', top: '92px', width: 'clamp(240px, 34vw, 420px)', zIndex: 0 }} />
+      <Doodle src="/uploads/IMG_8208.JPG" style={{ right: '-7vw', top: '230px', width: 'clamp(220px, 30vw, 320px)', zIndex: 0 }} />
+      <Doodle src="/uploads/IMG_8207.JPG" style={{ left: '-5vw', top: '900px', width: 'clamp(170px, 24vw, 240px)', zIndex: 0 }} />
+      <Doodle src="/uploads/IMG_8206.JPG" style={{ right: '-8vw', top: '1220px', width: 'clamp(250px, 38vw, 460px)', zIndex: 0 }} />
+      <Doodle src="/uploads/IMG_8209.JPG" style={{ left: '-6vw', top: '1580px', width: 'clamp(210px, 28vw, 320px)', zIndex: 0 }} />
+      <Doodle src="/uploads/IMG_8210.JPG" style={{ right: '-5vw', bottom: '72px', width: 'clamp(180px, 24vw, 260px)', zIndex: 0 }} />
 
       <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 clamp(24px,5vw,80px)', position: 'relative', zIndex: 1 }}>
         <div
+          className="landing-hero-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
@@ -49,15 +50,15 @@ export default function LandingPage() {
             paddingBlock: 'clamp(28px, 5vw, 64px)',
           }}
         >
-          <div style={{ paddingRight: 'clamp(0px, 4vw, 60px)' }}>
+          <div className="landing-hero-copy" style={{ paddingRight: 'clamp(0px, 4vw, 60px)' }}>
             <FadeUp>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 32 }}>
+              <div className="landing-eyebrow-row" style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 32 }}>
                 <div style={{ width: 28, height: 1, background: 'var(--accent)' }} />
                 <span className="eyebrow">Title I Verified {'\u00B7'} {school.district}</span>
               </div>
             </FadeUp>
 
-            <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(52px,7.5vw,120px)', fontWeight: 400, lineHeight: 0.97, letterSpacing: '-0.025em', color: 'var(--ink)', marginBottom: 36 }}>
+            <h1 className="landing-hero-title" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(52px,7.5vw,120px)', fontWeight: 400, lineHeight: 0.97, letterSpacing: '-0.025em', color: 'var(--ink)', marginBottom: 36 }}>
               <LineReveal delay={0.1}>Real</LineReveal>
               <LineReveal delay={0.18}>classrooms.</LineReveal>
               <LineReveal delay={0.26} style={{ color: 'var(--ink-muted)', fontStyle: 'italic', display: 'block' }}>
@@ -66,7 +67,7 @@ export default function LandingPage() {
             </h1>
 
             <FadeUp delay={0.5}>
-              <p style={{ fontFamily: 'var(--sans)', fontSize: 17, lineHeight: 1.75, color: 'var(--ink-muted)', maxWidth: 420, marginBottom: 44, fontWeight: 300 }}>
+              <p className="landing-hero-body" style={{ fontFamily: 'var(--sans)', fontSize: 17, lineHeight: 1.75, color: 'var(--ink-muted)', maxWidth: 420, marginBottom: 44, fontWeight: 300 }}>
                 Contribute toward a classroom system: reading, organization, operations. Every dollar is allocated transparently across the classrooms it supports.
               </p>
             </FadeUp>
@@ -89,7 +90,7 @@ export default function LandingPage() {
             </FadeUp>
           </div>
 
-          <div style={{ height: 'clamp(320px,50vh,640px)', position: 'relative' }}>
+          <div className="landing-hero-morph" style={{ height: 'clamp(320px,50vh,640px)', position: 'relative' }}>
             <MorphHero accentColor="#5C7A6E" />
           </div>
         </div>
@@ -292,6 +293,44 @@ export default function LandingPage() {
           Verified 501(c)(3) {'\u00B7'} {school.district}
         </div>
       </div>
+      <style>{`
+        @media (max-width: 640px) {
+          .landing-page {
+            padding-top: 72px !important;
+          }
+          .landing-hero-grid {
+            grid-template-columns: 1fr !important;
+            gap: 14px !important;
+            min-height: auto !important;
+            padding-block: 22px 28px !important;
+          }
+          .landing-hero-copy {
+            padding-right: 0 !important;
+          }
+          .landing-hero-morph {
+            height: clamp(220px, 30vh, 280px) !important;
+          }
+          .landing-eyebrow-row {
+            margin-bottom: 22px !important;
+          }
+          .landing-eyebrow-row .eyebrow {
+            font-size: 10px !important;
+            letter-spacing: 0.1em !important;
+            line-height: 1.35 !important;
+          }
+          .landing-hero-title {
+            font-size: clamp(42px, 16vw, 72px) !important;
+            line-height: 0.98 !important;
+            margin-bottom: 26px !important;
+          }
+          .landing-hero-body {
+            font-size: 15px !important;
+            line-height: 1.65 !important;
+            max-width: 100% !important;
+            margin-bottom: 30px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

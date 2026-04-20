@@ -12,13 +12,25 @@ export default function FadeUp({ children, delay = 0, style = {} }: FadeUpProps)
   return (
     <div
       style={{
-        transform: 'translateY(0)',
-        opacity: 1,
-        transition: `transform 0.75s cubic-bezier(0.22,1,0.36,1) ${delay}s, opacity 0.6s ease ${delay}s`,
+        transform: 'translateY(18px)',
+        opacity: 0,
+        animation: `fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) ${delay}s forwards`,
         ...style,
       }}
     >
       {children}
+      <style>{`
+        @keyframes fadeUpIn {
+          from {
+            opacity: 0;
+            transform: translateY(18px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </div>
   );
 }

@@ -36,12 +36,10 @@ export default function MorphHero({ accentColor = '#5C7A6E' }: MorphHeroProps) {
   const stateRef = useRef({ current: 0, raf: 0, timer: 0 as unknown as ReturnType<typeof setTimeout> | 0 });
 
   useEffect(() => {
-    if (window.matchMedia('(max-width: 767px)').matches) {
-      return;
-    }
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
 
-    const MORPH_MS = 1600;
-    const HOLD_MS = 3200;
+    const MORPH_MS = isMobile ? 2200 : 1600;
+    const HOLD_MS = isMobile ? 3800 : 3200;
 
     let cancelled = false;
 
@@ -205,44 +203,6 @@ export default function MorphHero({ accentColor = '#5C7A6E' }: MorphHeroProps) {
           </g>
         </svg>
       </div>
-      <div
-        className="morph-mobile-fallback"
-        style={{
-          width: '100%',
-          height: '100%',
-          position: 'relative',
-          display: 'none',
-          alignItems: 'center',
-          justifyContent: 'center',
-          overflow: 'hidden',
-        }}
-      >
-        <img
-          src="/uploads/IMG_8203.JPG"
-          alt=""
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'contain',
-            display: 'block',
-            mixBlendMode: 'multiply',
-            opacity: 0.82,
-            filter: 'sepia(0.36) saturate(0.62) hue-rotate(92deg) brightness(0.84)',
-          }}
-        />
-        <div
-          className="morph-mobile-shimmer"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background:
-              'linear-gradient(105deg, rgba(255,255,255,0) 38%, rgba(255,255,255,0.88) 50%, rgba(255,255,255,0) 62%)',
-            mixBlendMode: 'screen',
-            opacity: 0.6,
-            transform: 'translateX(-125%)',
-          }}
-        />
-      </div>
       <style>{`
         .morph-desktop-shell {
           width: 100%;
@@ -255,13 +215,6 @@ export default function MorphHero({ accentColor = '#5C7A6E' }: MorphHeroProps) {
         .morph-shimmer-path {
           animation: morphDash 10.8s linear infinite;
         }
-        .morph-mobile-fallback {
-          animation: morphMobileBreathe 8.4s ease-in-out infinite;
-          transform-origin: center;
-        }
-        .morph-mobile-shimmer {
-          animation: mobileShimmer 5.6s ease-in-out infinite;
-        }
         @keyframes morphFloat {
           0%, 100% { transform: translateY(0px) scale(0.992); }
           50% { transform: translateY(-8px) scale(1.018); }
@@ -270,20 +223,17 @@ export default function MorphHero({ accentColor = '#5C7A6E' }: MorphHeroProps) {
           0% { stroke-dashoffset: -1320; }
           100% { stroke-dashoffset: 1320; }
         }
-        @keyframes morphMobileBreathe {
-          0%, 100% { transform: translateY(0px) scale(0.988); }
-          50% { transform: translateY(-7px) scale(1.022); }
-        }
-        @keyframes mobileShimmer {
-          0%, 10% { transform: translateX(135%); }
-          46%, 100% { transform: translateX(-135%); }
-        }
         @media (max-width: 767px) {
           .morph-desktop-shell {
-            display: none;
+            transform: scale(1.04);
+            transform-origin: center;
           }
-          .morph-mobile-fallback {
-            display: flex;
+          .morph-float {
+            animation-duration: 10.8s;
+          }
+          .morph-shimmer-path {
+            animation-duration: 12.6s;
+            opacity: 0.82;
           }
         }
       `}</style>
