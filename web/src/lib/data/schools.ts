@@ -5,7 +5,7 @@ export const SCHOOLS: School[] = [
     id: 'spring-hill',
     name: 'Spring Hill Elementary School',
     location: 'Baltimore, MD',
-    district: 'Baltimore City Public Schools',
+    district: 'Fayette County Schools',
     grade: 'K–5',
     enrollment: 398,
     frlPercent: 91,
