@@ -73,9 +73,16 @@ export default async function DonatePage({ searchParams }: DonatePageProps) {
 
         <Rule />
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, paddingTop: 40 }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: 'clamp(28px, 6vw, 60px)',
+            paddingTop: 40,
+          }}
+        >
           <FadeUp delay={0.2}>
-            <div style={{ background: 'var(--bg-warm)', padding: 32, borderTop: '2px solid var(--ink)' }}>
+            <div style={{ background: 'var(--bg-warm)', padding: 'clamp(22px, 4vw, 32px)', borderTop: '2px solid var(--ink)' }}>
               <DonationForm
                 schoolId={school.id}
                 mode={mode}
