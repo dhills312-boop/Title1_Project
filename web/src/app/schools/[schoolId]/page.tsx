@@ -42,7 +42,14 @@ export default async function CampaignPage({ params }: CampaignPageProps) {
             </div>
           </FadeUp>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 60, alignItems: 'end' }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: 'clamp(24px, 5vw, 60px)',
+              alignItems: 'end',
+            }}
+          >
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 18, marginBottom: 16 }}>
                 <img
@@ -85,7 +92,7 @@ export default async function CampaignPage({ params }: CampaignPageProps) {
           <div style={{ height: 4, background: 'var(--rule)', marginBottom: 12 }}>
             <div style={{ height: '100%', width: `${pct}%`, background: 'var(--ink)' }} />
           </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap' }}>
             <span style={{ fontFamily: 'var(--sans)', fontSize: 13, color: 'var(--ink-muted)' }}>
               ${totalRaised.toLocaleString()} funded
             </span>

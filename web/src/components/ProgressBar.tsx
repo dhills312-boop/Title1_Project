@@ -9,12 +9,22 @@ interface ProgressBarProps {
   showAmounts?: boolean;
 }
 
+function shouldShowImmediately() {
+  if (typeof window === 'undefined') return false;
+  return (
+    window.matchMedia('(max-width: 900px)').matches ||
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+    typeof IntersectionObserver === 'undefined'
+  );
+}
+
 export default function ProgressBar({ funded, total, label, showAmounts = true }: ProgressBarProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
+  const [inView, setInView] = useState(() => shouldShowImmediately());
   const pct = total > 0 ? Math.round((funded / total) * 100) : 0;
 
   useEffect(() => {
+    if (inView) return;
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
@@ -27,8 +37,12 @@ export default function ProgressBar({ funded, total, label, showAmounts = true }
       { threshold: 0.1 },
     );
     obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+    const fallback = window.setTimeout(() => setInView(true), 220);
+    return () => {
+      window.clearTimeout(fallback);
+      obs.disconnect();
+    };
+  }, [inView]);
 
   return (
     <div ref={ref} style={{ marginBottom: 20 }}>

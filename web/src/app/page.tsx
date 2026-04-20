@@ -39,8 +39,17 @@ export default function LandingPage() {
       <Doodle src="/uploads/IMG_8210.JPG" style={{ right: '-60px', bottom: '80px', width: '300px', zIndex: 0 }} />
 
       <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 clamp(24px,5vw,80px)', position: 'relative', zIndex: 1 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0, minHeight: 'calc(100vh - 60px)', alignItems: 'center' }}>
-          <div style={{ paddingRight: 60 }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: 'clamp(28px, 6vw, 72px)',
+            minHeight: 'calc(100vh - 60px)',
+            alignItems: 'center',
+            paddingBlock: 'clamp(28px, 5vw, 64px)',
+          }}
+        >
+          <div style={{ paddingRight: 'clamp(0px, 4vw, 60px)' }}>
             <FadeUp>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 32 }}>
                 <div style={{ width: 28, height: 1, background: 'var(--accent)' }} />
@@ -81,7 +90,7 @@ export default function LandingPage() {
             </FadeUp>
           </div>
 
-          <div style={{ height: 'clamp(380px,55vh,640px)', position: 'relative' }}>
+          <div style={{ height: 'clamp(320px,50vh,640px)', position: 'relative' }}>
             <MorphHero accentColor="#5C7A6E" />
           </div>
         </div>
@@ -91,7 +100,7 @@ export default function LandingPage() {
               marginTop: 8,
               marginBottom: 28,
               display: 'grid',
-              gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
               gap: 18,
             }}
           >
@@ -167,7 +176,7 @@ export default function LandingPage() {
       </div>
 
       <div style={{ maxWidth: 1300, margin: '0 auto', padding: '56px clamp(24px,5vw,80px)', position: 'relative', zIndex: 1 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 18 }}>
           {[
             [String(school.enrollment), 'Students enrolled'],
             [String(classrooms.length), 'Classrooms in system'],
@@ -180,7 +189,7 @@ export default function LandingPage() {
             const isNum = !isNaN(parseFloat(numeric));
             return (
               <FadeUp key={label} delay={i * 0.1}>
-                <div style={{ padding: '0 32px', borderLeft: i > 0 ? '1px solid var(--rule)' : 'none' }}>
+                <div style={{ padding: '0 clamp(0px, 2vw, 32px)', borderLeft: i > 0 ? '1px solid var(--rule)' : 'none' }}>
                   <div style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(28px,4vw,52px)', fontWeight: 500, lineHeight: 1, letterSpacing: '-0.01em', color: 'var(--ink)' }}>
                     {isNum ? (
                       <CountUp to={value.replace(/[$%]/g, '')} prefix={prefix} suffix={suffix} />
@@ -202,7 +211,19 @@ export default function LandingPage() {
         <Rule />
       </div>
 
-      <div style={{ maxWidth: 1300, margin: '0 auto', padding: '80px clamp(24px,5vw,80px) 100px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 100, alignItems: 'start', position: 'relative', zIndex: 1 }}>
+      <div
+        style={{
+          maxWidth: 1300,
+          margin: '0 auto',
+          padding: '80px clamp(24px,5vw,80px) 100px',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: 'clamp(40px, 8vw, 100px)',
+          alignItems: 'start',
+          position: 'relative',
+          zIndex: 1,
+        }}
+      >
         <div>
           <FadeUp>
             <div className="eyebrow" style={{ marginBottom: 20 }}>How it works</div>
@@ -230,7 +251,7 @@ export default function LandingPage() {
             />
           </FadeUp>
         </div>
-        <div style={{ paddingTop: 56 }}>
+        <div style={{ paddingTop: 'clamp(0px, 4vw, 56px)' }}>
           {[
             ['01', 'A Title I school submits verified classroom systems through the district portal.'],
             ['02', 'Systems group the needs across every classroom — reading, organization, operations.'],

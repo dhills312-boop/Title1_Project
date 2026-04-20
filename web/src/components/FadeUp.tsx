@@ -8,11 +8,21 @@ interface FadeUpProps {
   style?: CSSProperties;
 }
 
+function shouldShowImmediately() {
+  if (typeof window === 'undefined') return false;
+  return (
+    window.matchMedia('(max-width: 900px)').matches ||
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+    typeof IntersectionObserver === 'undefined'
+  );
+}
+
 export default function FadeUp({ children, delay = 0, style = {} }: FadeUpProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
+  const [inView, setInView] = useState(() => shouldShowImmediately());
 
   useEffect(() => {
+    if (inView) return;
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
@@ -25,8 +35,12 @@ export default function FadeUp({ children, delay = 0, style = {} }: FadeUpProps)
       { threshold: 0.12 },
     );
     obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+    const fallback = window.setTimeout(() => setInView(true), 220);
+    return () => {
+      window.clearTimeout(fallback);
+      obs.disconnect();
+    };
+  }, [inView]);
 
   return (
     <div

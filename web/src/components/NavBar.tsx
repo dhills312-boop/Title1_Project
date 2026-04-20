@@ -35,10 +35,12 @@ export default function NavBar() {
       <div
         style={{
           fontFamily: 'var(--sans)',
-          fontSize: 11,
+          fontSize: 'clamp(9px, 2.8vw, 11px)',
           letterSpacing: '0.12em',
           textTransform: 'uppercase',
           color: 'var(--ink-muted)',
+          textAlign: 'right',
+          maxWidth: '48vw',
         }}
       >
         Verified Allocation System

@@ -9,6 +9,15 @@ interface CountUpProps {
   duration?: number;
 }
 
+function shouldShowImmediately() {
+  if (typeof window === 'undefined') return false;
+  return (
+    window.matchMedia('(max-width: 900px)').matches ||
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+    typeof IntersectionObserver === 'undefined'
+  );
+}
+
 export default function CountUp({
   to,
   prefix = '',
@@ -16,12 +25,13 @@ export default function CountUp({
   duration = 1600,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [inView, setInView] = useState(false);
+  const [inView, setInView] = useState(() => shouldShowImmediately());
   const raw = parseFloat(String(to).replace(/[^0-9.]/g, ''));
   const hasComma = String(to).includes(',');
   const [display, setDisplay] = useState(prefix + '0' + suffix);
 
   useEffect(() => {
+    if (inView) return;
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
@@ -34,8 +44,12 @@ export default function CountUp({
       { threshold: 0.12 },
     );
     obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+    const fallback = window.setTimeout(() => setInView(true), 220);
+    return () => {
+      window.clearTimeout(fallback);
+      obs.disconnect();
+    };
+  }, [inView]);
 
   useEffect(() => {
     if (!inView) return;
