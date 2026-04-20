@@ -1,3 +1,9 @@
+import { SCHOOLS } from '@/lib/data/schools';
+
+export function generateStaticParams() {
+  return SCHOOLS.map(s => ({ schoolId: s.id }));
+}
+
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import FadeUp from '@/components/FadeUp';
