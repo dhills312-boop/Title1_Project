@@ -16,9 +16,9 @@ export default function ItemRow({ item, system, schoolId, classroomId }: ItemRow
       href={`/schools/${schoolId}/classrooms/${classroomId}/items/${item.id}`}
       style={{
         display: 'grid',
-        gridTemplateColumns: '2fr 1fr auto',
-        gap: 24,
-        alignItems: 'center',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+        gap: 16,
+        alignItems: 'start',
         padding: '18px 0',
         borderTop: '1px solid var(--rule)',
         color: 'var(--ink)',

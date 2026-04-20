@@ -15,8 +15,8 @@ export default function SystemCard({ system, schoolId }: SystemCardProps) {
         borderTop: '1px solid var(--rule)',
         padding: '32px 0',
         display: 'grid',
-        gridTemplateColumns: '1.2fr 1fr auto',
-        gap: 40,
+        gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+        gap: 24,
         alignItems: 'start',
       }}
     >

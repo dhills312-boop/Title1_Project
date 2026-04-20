@@ -16,9 +16,9 @@ export default function ClassroomCard({ classroom, isLast }: ClassroomCardProps)
       href={`/schools/${classroom.schoolId}/classrooms/${classroom.id}`}
       style={{
         display: 'grid',
-        gridTemplateColumns: '2fr 1fr 1fr auto',
-        gap: 32,
-        alignItems: 'center',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+        gap: 18,
+        alignItems: 'start',
         borderTop: '1px solid var(--rule)',
         borderBottom: isLast ? '1px solid var(--rule)' : 'none',
         padding: '28px 16px',

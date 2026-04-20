@@ -37,12 +37,19 @@ export default async function ClassroomPage({ params }: ClassroomPageProps) {
             {school.name} · {classroom.grade}
           </div>
         </FadeUp>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 28, alignItems: 'end' }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: 24,
+            alignItems: 'end',
+          }}
+        >
           <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px,5.5vw,68px)', fontWeight: 400, lineHeight: 1.05, letterSpacing: '-0.025em', color: 'var(--ink)', marginBottom: 0 }}>
             <LineReveal delay={0.05}>{classroom.teacher}&apos;s Classroom</LineReveal>
           </h1>
           <FadeUp delay={0.12}>
-            <div style={{ display: 'flex', gap: 12, alignItems: 'flex-end' }}>
+            <div style={{ display: 'flex', gap: 12, alignItems: 'flex-end', flexWrap: 'wrap' }}>
               <img
                 src="/uploads/IMG_8198.PNG"
                 alt=""
@@ -60,7 +67,14 @@ export default async function ClassroomPage({ params }: ClassroomPageProps) {
         <div style={{ height: 48 }} />
         <Rule />
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, paddingTop: 48 }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: 'clamp(28px, 6vw, 80px)',
+            paddingTop: 48,
+          }}
+        >
           <div>
             <FadeUp delay={0.1}>
               <p style={{ fontFamily: 'var(--sans)', fontSize: 16, lineHeight: 1.85, color: 'var(--ink-muted)', fontWeight: 300, marginBottom: 40 }}>
@@ -88,7 +102,7 @@ export default async function ClassroomPage({ params }: ClassroomPageProps) {
           </div>
 
           <FadeUp delay={0.3}>
-            <div style={{ background: 'var(--bg-warm)', padding: 36, borderTop: '2px solid var(--ink)' }}>
+            <div style={{ background: 'var(--bg-warm)', padding: 'clamp(22px, 4vw, 36px)', borderTop: '2px solid var(--ink)' }}>
               <div className="eyebrow" style={{ color: 'var(--ink-muted)', marginBottom: 20 }}>
                 Contribute to this classroom through a system
               </div>
