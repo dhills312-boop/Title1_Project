@@ -1,3 +1,13 @@
+import { ITEMS } from '@/lib/data/items';
+
+export function generateStaticParams() {
+  return ITEMS.map(i => ({
+    schoolId: i.schoolId,
+    classroomId: i.classroomId,
+    itemId: i.id,
+  }));
+}
+
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import FadeUp from '@/components/FadeUp';
