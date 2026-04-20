@@ -30,7 +30,7 @@ export default function ClassroomCard({ classroom, isLast }: ClassroomCardProps)
           {classroom.teacher}
         </div>
         <div style={{ fontFamily: 'var(--sans)', fontSize: 12, color: 'var(--ink-muted)', letterSpacing: '0.04em' }}>
-          {classroom.grade} ? {classroom.students} students
+          {classroom.grade} {'\u00B7'} {classroom.students} students
         </div>
       </div>
       <div>
@@ -48,7 +48,7 @@ export default function ClassroomCard({ classroom, isLast }: ClassroomCardProps)
         <div style={{ fontFamily: 'var(--sans)', fontSize: 11, color: 'var(--ink-muted)' }}>systems active</div>
       </div>
       <div style={{ fontFamily: 'var(--sans)', fontSize: 12, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink-muted)' }}>
-        View ?</div>
+        View {'\u2192'}</div>
     </Link>
   );
 }

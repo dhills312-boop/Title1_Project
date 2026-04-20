@@ -37,7 +37,7 @@ export default async function CampaignPage({ params }: CampaignPageProps) {
         <div style={{ marginBottom: 48 }}>
           <FadeUp>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-              <span className="eyebrow">Spring 2026 Campaign ? Active</span>
+              <span className="eyebrow">Spring 2026 Campaign {'\u00B7'} Active</span>
               <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#5C8A5C' }} />
             </div>
           </FadeUp>
@@ -70,7 +70,7 @@ export default async function CampaignPage({ params }: CampaignPageProps) {
               </div>
               <FadeUp delay={0.3}>
                 <p style={{ fontFamily: 'var(--sans)', fontSize: 14, color: 'var(--ink-muted)', letterSpacing: '0.04em' }}>
-                  {school.district} ? Grades {school.grade} ? {school.enrollment} students
+                  {school.district} {'\u00B7'} Grades {school.grade} {'\u00B7'} {school.enrollment} students
                 </p>
               </FadeUp>
             </div>
@@ -133,7 +133,7 @@ export default async function CampaignPage({ params }: CampaignPageProps) {
                 textTransform: 'uppercase',
               }}
             >
-              Contribute to greatest need ?</Link>
+              Contribute to greatest need {'\u2192'}</Link>
           </div>
         </div>
 

@@ -24,7 +24,7 @@ export default function LandingPage() {
     {
       src: '/uploads/IMG_8199.PNG',
       label: 'Location + Reach',
-      sub: `${school.location} ? ${classrooms.length} classrooms`,
+      sub: `${school.location} \u00B7 ${classrooms.length} classrooms`,
     },
   ];
 
@@ -53,7 +53,7 @@ export default function LandingPage() {
             <FadeUp>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 32 }}>
                 <div style={{ width: 28, height: 1, background: 'var(--accent)' }} />
-                <span className="eyebrow">Title I Verified ? {school.district}</span>
+                <span className="eyebrow">Title I Verified {'\u00B7'} {school.district}</span>
               </div>
             </FadeUp>
 
@@ -85,7 +85,7 @@ export default function LandingPage() {
                   padding: '16px 40px',
                 }}
               >
-                See current campaign ?</Link>
+                See current campaign {'\u2192'}</Link>
             </FadeUp>
           </div>
 
@@ -279,7 +279,7 @@ export default function LandingPage() {
                 textUnderlineOffset: 5,
               }}
             >
-              View active campaign ?</Link>
+              View active campaign {'\u2192'}</Link>
           </FadeUp>
         </div>
       </div>
@@ -289,7 +289,7 @@ export default function LandingPage() {
           Currently active: {school.name}, {school.location}
         </span>
         <div style={{ fontFamily: 'var(--sans)', fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--ink-muted)' }}>
-          Verified 501(c)(3) ? {school.district}
+          Verified 501(c)(3) {'\u00B7'} {school.district}
         </div>
       </div>
     </div>

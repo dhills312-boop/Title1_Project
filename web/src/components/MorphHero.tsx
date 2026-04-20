@@ -25,6 +25,9 @@ interface MorphHeroProps {
   accentColor?: string;
 }
 
+const FALLBACK_PATH =
+  'M 240 390 C 300 330, 360 300, 430 300 C 500 300, 560 332, 600 380 C 640 428, 694 468, 766 470 C 840 472, 908 434, 960 366';
+
 export default function MorphHero({ accentColor = '#5C7A6E' }: MorphHeroProps) {
   const pathRef = useRef<SVGPathElement>(null);
   const glowPathRef = useRef<SVGPathElement>(null);
@@ -35,8 +38,6 @@ export default function MorphHero({ accentColor = '#5C7A6E' }: MorphHeroProps) {
   useEffect(() => {
     const MORPH_MS = 1600;
     const HOLD_MS = 3200;
-    const fallbackPath =
-      'M 240 390 C 300 330, 360 300, 430 300 C 500 300, 560 332, 600 380 C 640 428, 694 468, 766 470 C 840 472, 908 434, 960 366';
 
     let cancelled = false;
 
@@ -49,9 +50,9 @@ export default function MorphHero({ accentColor = '#5C7A6E' }: MorphHeroProps) {
         return;
       }
       if (paths && !flubber) {
-        pathRef.current.setAttribute('d', paths[0]?.d || fallbackPath);
-        glowPathRef.current?.setAttribute('d', paths[0]?.d || fallbackPath);
-        shimmerPathRef.current?.setAttribute('d', paths[0]?.d || fallbackPath);
+        pathRef.current.setAttribute('d', paths[0]?.d || FALLBACK_PATH);
+        glowPathRef.current?.setAttribute('d', paths[0]?.d || FALLBACK_PATH);
+        shimmerPathRef.current?.setAttribute('d', paths[0]?.d || FALLBACK_PATH);
         if (paths[0]) {
           if (groupRef.current) {
             groupRef.current.setAttribute('transform', `translate(${paths[0].offX}, ${paths[0].offY})`);
@@ -60,9 +61,9 @@ export default function MorphHero({ accentColor = '#5C7A6E' }: MorphHeroProps) {
         return;
       }
       if (!paths || !flubber) {
-        pathRef.current.setAttribute('d', fallbackPath);
-        glowPathRef.current?.setAttribute('d', fallbackPath);
-        shimmerPathRef.current?.setAttribute('d', fallbackPath);
+        pathRef.current.setAttribute('d', FALLBACK_PATH);
+        glowPathRef.current?.setAttribute('d', FALLBACK_PATH);
+        shimmerPathRef.current?.setAttribute('d', FALLBACK_PATH);
         setTimeout(tryStart, 80);
         return;
       }
@@ -164,7 +165,7 @@ export default function MorphHero({ accentColor = '#5C7A6E' }: MorphHeroProps) {
         <g ref={groupRef}>
           <path
             ref={glowPathRef}
-            d=""
+            d={FALLBACK_PATH}
             fill="none"
             stroke={accentColor}
             strokeWidth="7"
@@ -175,7 +176,7 @@ export default function MorphHero({ accentColor = '#5C7A6E' }: MorphHeroProps) {
           />
           <path
             ref={pathRef}
-            d=""
+            d={FALLBACK_PATH}
             fill="none"
             stroke={accentColor}
             strokeWidth="2.2"
@@ -185,7 +186,7 @@ export default function MorphHero({ accentColor = '#5C7A6E' }: MorphHeroProps) {
           />
           <path
             ref={shimmerPathRef}
-            d=""
+            d={FALLBACK_PATH}
             fill="none"
             stroke="url(#morph-shimmer)"
             strokeWidth="5.4"
